@@ -1,7 +1,16 @@
 # Estaty / RAFAIMMOBILIER deployment
 
 This is the complete Laravel application, not a static GitHub Pages export.
-The repository is intended to stay private. GitHub stores source; Railway runs PHP and MySQL.
+GitHub stores application source. The running website needs a PHP/MySQL host.
+
+## Current deployment
+
+Website: https://rafaimmobilier.infinityfreeapp.com/
+
+The application is hosted on InfinityFree with MySQL, HTTPS, production-only
+dependencies, and file-based sessions/cache. Hosting credentials and the live
+database are excluded from this repository. See `deploy/infinityfree/README.md`
+for the shared-host layout. Railway remains an alternative using the Dockerfile.
 
 ## Railway
 

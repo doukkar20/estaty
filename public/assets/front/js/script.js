@@ -996,18 +996,10 @@
 
 })(jQuery);
 
-$(window).on("load", function () {
-    const delay = 350;
-
-    /*============================================
-    Preloader
-    ============================================*/
-    $("#preLoader").delay(delay).fadeOut('slow');
-
-    /*============================================
-        Aos animation
-    ============================================*/
-    var aosAnimation = function () {
+// Reveal the page when the DOM is ready; large listing photos must not block it.
+$(function () {
+    $("#preLoader").stop(true, true).fadeOut(200);
+    if (typeof AOS !== 'undefined') {
         AOS.init({
             easing: "ease",
             duration: 1500,
@@ -1016,11 +1008,8 @@ $(window).on("load", function () {
             disable: 'mobile'
         });
     }
-    if ($("#preLoader")) {
-        setTimeout(() => {
-            aosAnimation()
-        }, delay);
-    } else {
-        aosAnimation();
-    }
-})
+});
+
+$(window).on("load", function () {
+    if (typeof AOS !== 'undefined') AOS.refresh();
+});
