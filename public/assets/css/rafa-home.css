@@ -1,0 +1,96 @@
+/* Public homepage: a quiet header, readable hero, and a predictable search layout. */
+.rafa-home-page { --rafa-home-navy: #102b46; --rafa-home-muted: #586c7f; background: #fff; }
+.rafa-home-page .container { max-width: 1280px; }
+.rafa-home-page .header-area, .rafa-home-page .header-area.is-sticky {
+  position: sticky !important; top: 0; background: #ffffffed; border-bottom: 1px solid #e6ebf0;
+  backdrop-filter: blur(18px); box-shadow: none; animation: none;
+}
+.rafa-home-page .header-area .main-navbar .navbar { min-height: 88px; gap: 24px; }
+.rafa-home-page .header-area .main-navbar .navbar-brand { flex: 0 0 190px; }
+.rafa-home-page .header-area .navbar-nav { margin-inline: auto 8px; gap: 18px; align-items: center; }
+.rafa-home-page .header-area .main-navbar .nav-item { margin: 0; }
+.rafa-home-page .header-area .nav-link { font-size: 14px; font-weight: 600; white-space: nowrap; padding: 26px 0; color: #21394e; }
+.rafa-home-page .header-area .nav-link > i { font-size: 9px; margin-inline-start: 5px; }
+.rafa-home-page .header-area .more-option { flex-wrap: nowrap; gap: 10px; flex-shrink: 0; }
+.rafa-home-page .header-area .more-option .btn { padding: 10px 14px; border-radius: 8px; font-size: 12px; min-height: 40px; white-space: nowrap; }
+.rafa-home-page .header-area .language { font-size: 12px; }
+.rafa-home-page .header-area .main-responsive-nav .logo { max-width: 200px; }
+.rafa-home-page .home-banner.home-banner-1 { padding: 80px 0 65px; min-height: 650px; background: #edf3f6; isolation: isolate; }
+.rafa-home-page .home-banner-1 > .bg-img { z-index: -2; object-fit: cover; object-position: center right; }
+.rafa-home-page .home-banner-1::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg,#f5f8faf5 0%,#f5f8faed 32%,#f5f8fa99 57%,#f5f8fa00 83%); z-index: -1; }
+.rafa-home-page .home-banner-1 .col-xxl-10 { width: 100%; }
+.rafa-home-page .home-banner-1 .content { max-width: 590px; margin-bottom: 32px !important; }
+.rafa-hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; color: #8b651f; text-transform: uppercase; letter-spacing: .16em; font-size: 11px; font-weight: 700; margin-bottom: 20px; }
+.rafa-hero-eyebrow::before { content: ''; width: 28px; height: 2px; background: #bd9140; }
+.rafa-home-page .home-banner-1 .content .title { color: #102b46; font-size: clamp(36px,4.1vw,58px); line-height: 1.1; letter-spacing: -.035em; font-weight: 700; margin: 0 0 22px; text-wrap: balance; }
+.rafa-home-page .home-banner-1 .content .text { color: #53687b; font-size: 16px; line-height: 1.9; max-width: 490px; margin: 0; }
+.rafa-hero-links { display: flex; align-items: center; flex-wrap: wrap; gap: 14px 24px; margin-top: 25px; }
+.rafa-hero-link { display: inline-flex; align-items: center; gap: 10px; color: #102b46; font-size: 13px; font-weight: 700; text-decoration: none; padding-block: 8px; }
+.rafa-hero-link i { color: #946b22; }
+.rafa-hero-link:hover { color: #946b22; }
+.rafa-home-page .home-banner-1 .banner-filter-form { max-width: 100%; position: relative; margin-top: 36px; }
+.rafa-home-page .home-banner-1 .banner-filter-form .nav-tabs { display: inline-flex; padding: 5px; gap: 4px; border: 1px solid #dce4ec; border-bottom: 0; background: #fff; border-radius: 13px 13px 0 0; }
+.rafa-home-page .home-banner-1 .banner-filter-form .nav-tabs .nav-link { padding: 11px 30px; margin: 0; color: #5f7283; border: 0; border-radius: 8px; font-size: 13px; font-weight: 700; }
+.rafa-home-page .home-banner-1 .banner-filter-form .nav-tabs .nav-link::before { display: none; }
+.rafa-home-page .home-banner-1 .banner-filter-form .nav-tabs .nav-link.active { background: #102b46; color: #fff; }
+.rafa-home-page .home-banner-1 .banner-filter-form .form-wrapper { padding: 25px; border: 1px solid #dce4ec; border-radius: 0 14px 14px 14px; background: #fff; box-shadow: 0 18px 50px #102b4614; }
+.rafa-home-page .home-banner-1 .banner-filter-form .grid { display: grid; grid-template-columns: 1.15fr 1fr 1fr 1fr 1.15fr 145px; align-items: end; gap: 20px; }
+.rafa-home-page .home-banner-1 .banner-filter-form .grid .grid-item { min-width: 0; width: auto; padding: 0; border: 0; }
+.rafa-home-page .home-banner-1 .form-group { margin: 0; padding: 0; }
+.rafa-home-page .home-banner-1 label { display: block; color: #5b6c7c; font-size: 11px; font-weight: 600; margin-bottom: 9px; line-height: 1.5; }
+.rafa-home-page .home-banner-1 .form-control { height: 44px; padding: 10px 12px; border: 1px solid #e0e6ec; background: #f8fafc; border-radius: 8px; color: #17334d; font-size: 13px; }
+.rafa-home-page .home-banner-1 .select2-container { width: 100% !important; }
+.rafa-home-page .home-banner-1 .select2-selection--single { height: 44px; border: 1px solid #e0e6ec; border-radius: 8px; background: #f8fafc; padding: 7px 10px; }
+.rafa-home-page .home-banner-1 .select2-selection__rendered { padding: 0 18px 0 0; line-height: 28px; color: #17334d; font-size: 13px; }
+.rafa-home-page .home-banner-1 .select2-selection__arrow { height: 42px; right: 8px; }
+.rafa-home-page .home-banner-1 .price-value { margin-bottom: 14px; }
+.rafa-home-page .home-banner-1 .price-value span { display: block; color: #17334d; font-size: 12px; font-weight: 600; margin-top: 4px; white-space: nowrap; }
+.rafa-home-page .home-banner-1 .noUi-target { margin: 0 9px 17px; height: 4px; box-shadow: none; border: 0; background: #e7edf2; }
+.rafa-home-page .home-banner-1 .noUi-connect { background: #bd9140; }
+.rafa-home-page .home-banner-1 .banner-filter-form button[type=submit] { min-height: 46px; padding: 12px; border: 1px solid #102b46; background: #102b46; color: #fff; border-radius: 8px; font-size: 14px; font-weight: 700; }
+.rafa-home-page .home-banner-1 .banner-filter-form button[type=submit]:hover { background: #204c6a; border-color: #204c6a; }
+.rafa-search-note { display: flex; align-items: center; gap: 8px; margin: 14px 0 0; font-size: 12px; line-height: 1.6; color: #53687b; }
+.rafa-home-page .counter-area { padding: 40px 0 18px !important; background: #fff; border-bottom: 1px solid #edf0f4; }
+.rafa-home-page .counter-area .card { border: 0; background: transparent; }
+.rafa-home-page .counter-area .card-icon { font-size: 28px; color: #a27a30 !important; }
+.rafa-home-page .counter-area h2 { font-size: 32px; color: #102b46 !important; }
+.rafa-home-page .counter-area .card-text { color: #617184; font-size: 12px; }
+.rafa-home-page a:focus-visible, .rafa-home-page button:focus-visible { outline: 3px solid #bd9140; outline-offset: 4px; }
+.rafa-home-page .home-banner-1 .form-control:focus { border-color: #bd9140; box-shadow: 0 0 0 3px #bd914021; }
+@media (max-width:1399px) and (min-width:1200px) {
+  .rafa-home-page .header-area .main-navbar .navbar { gap: 16px; }
+  .rafa-home-page .header-area .navbar-nav { gap: 12px; }
+  .rafa-home-page .header-area .main-navbar .navbar-brand { flex-basis: 170px; }
+  .rafa-home-page .header-area .more-option { gap: 7px; }
+  .rafa-home-page .header-area .more-option .btn { padding-inline: 10px; }
+}
+@media (max-width:1199px) {
+  .rafa-home-page .home-banner.home-banner-1 { padding: 55px 0 45px; min-height: auto; }
+  .rafa-home-page .home-banner-1 .banner-filter-form .grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .rafa-home-page .header-area .mobile-menu .more-option { flex-wrap: wrap; }
+}
+@media (max-width:767px) {
+  .rafa-home-page .home-banner.home-banner-1 { padding: 40px 0 30px; }
+  .rafa-home-page .home-banner-1::before { background: #f5f8fae8; }
+  .rafa-home-page .home-banner-1 .content { margin-bottom: 25px !important; }
+  .rafa-home-page .home-banner-1 .content .title { max-width: 480px; font-size: 39px; }
+  .rafa-home-page .home-banner-1 .content .text { font-size: 14px; line-height: 1.8; }
+  .rafa-home-page .home-banner-1 .banner-filter-form { margin-top: 24px; }
+  .rafa-home-page .home-banner-1 .banner-filter-form .form-wrapper { padding: 20px; }
+  .rafa-home-page .home-banner-1 .banner-filter-form .grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 14px; }
+  .rafa-home-page .home-banner-1 .banner-filter-form .grid .grid-item:first-child,
+  .rafa-home-page .home-banner-1 .banner-filter-form .grid .grid-item:last-child { grid-column: 1 / -1; }
+  .rafa-home-page .home-banner-1 .price-value span { white-space: normal; font-size: 11px; }
+  .rafa-home-page .home-banner-1 .banner-filter-form .nav-tabs .nav-link { padding-inline: 28px; }
+  .rafa-hero-eyebrow { font-size: 10px; margin-bottom: 16px; }
+  .rafa-home-page .counter-area { padding-top: 30px !important; }
+  .rafa-home-page .counter-area h2 { font-size: 27px; }
+  .rafa-search-note { align-items: flex-start; font-size: 11px; }
+}
+@media (prefers-reduced-motion:reduce) { .rafa-home-page * { scroll-behavior: auto !important; } }
+.rafa-home-page[dir="rtl"] .home-banner-1::before { background: linear-gradient(270deg,#f5f8faf5 0%,#f5f8faed 32%,#f5f8fa99 57%,#f5f8fa00 83%); }
+.rafa-home-page[dir="rtl"] { font-family: "Segoe UI", Tahoma, Arial, sans-serif; }
+.rafa-home-page[dir="rtl"] .rafa-hero-link i { transform: scaleX(-1); }
+.rafa-home-page[dir="rtl"] .select2-selection__rendered { padding: 0 0 0 18px; }
+.rafa-home-page[dir="rtl"] .price-value span { direction: ltr; text-align: right; }
+@media (max-width:767px) { .rafa-home-page[dir="rtl"] .home-banner-1::before { background: #f5f8fae8; } }

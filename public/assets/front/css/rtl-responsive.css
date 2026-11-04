@@ -1,0 +1,12 @@
+/* Responsive corrections shared by the Arabic frontend themes. */
+@media (max-width:1199px) {
+  body[dir="rtl"] .mobile-menu { left: auto; right: -100%; max-width: 100%; }
+  body[dir="rtl"].mobile-menu-active .mobile-menu { left: auto; right: 0; }
+  body[dir="rtl"] .mobile-menu .nav-link.toggle i { left: 0; right: auto; }
+  body[dir="rtl"] .mobile-menu .more-option { flex-wrap: wrap; }
+}
+@media (max-width:767px) {
+  body[dir="rtl"] .user-dashboard .account-info .main-info .list li { align-items: stretch; }
+  body[dir="rtl"] .user-dashboard .sidebar-widget-area .links { direction: rtl; }
+  body[dir="rtl"] .banner-filter-form .select2-container { max-width: 100%; }
+}
