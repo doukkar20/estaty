@@ -28,6 +28,8 @@ The existing French/Arabic support and RAFAIMMOBILIER branding are retained.
 
 ## Verification
 
-PHP parsing, source exclusions, and shell syntax can be checked locally. An actual Docker build,
-first-time MySQL import, persistent-volume restart, and HTTPS browser smoke test must pass on
-the hosting provider before the site is considered deployed.
+Local verification passed PHP parsing, source exclusions, shell syntax, and an isolated
+MariaDB starter import. The initialization test verified the owner password, disabled starter
+administrator accounts, and confirmed that repeating initialization preserves data and passwords.
+An actual Docker build, hosting-provider MySQL import, persistent-volume restart, and HTTPS
+browser smoke test must still pass before the site is considered deployed.
