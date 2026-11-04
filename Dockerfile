@@ -2,9 +2,10 @@ FROM php:8.2-apache-bookworm
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git unzip libzip-dev libpng-dev libjpeg62-turbo-dev libfreetype6-dev \
-    libicu-dev libonig-dev libxml2-dev \
+    libicu-dev libonig-dev libxml2-dev libcurl4-openssl-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j2 bcmath exif gd intl mbstring pdo_mysql zip \
+    && docker-php-ext-install -j2 bcmath curl dom exif gd intl mbstring pdo_mysql \
+       simplexml xml xmlreader xmlwriter zip \
     && a2enmod rewrite headers \
     && rm -rf /var/lib/apt/lists/*
 
