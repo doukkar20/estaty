@@ -5,7 +5,8 @@ declare(strict_types=1);
 
 function setting(string $name, string $default = ''): string
 {
-    $value = getenv($name);
+    // Shared hosts can disable putenv; Dotenv still populates these arrays.
+    $value = $_ENV[$name] ?? $_SERVER[$name] ?? getenv($name);
     return $value === false ? $default : $value;
 }
 
