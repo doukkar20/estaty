@@ -13,7 +13,8 @@
             input.maxLength = 5;
         });
         document.querySelectorAll('select[name="country_id"], select[name="country"]').forEach(function (select) {
-            if (select.value && select.value !== 'all') return;
+            var selected = select.options[select.selectedIndex];
+            if (selected && !selected.disabled && select.value && select.value !== 'all') return;
             var target = String(window.rafaMorocco.countryId);
             if (!Array.from(select.options).some(function (option) { return option.value === target; })) return;
             select.value = target;

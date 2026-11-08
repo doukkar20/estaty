@@ -635,6 +635,20 @@ class BasicController extends Controller
   }
 
   //general_settings
+  public function configureMorocco(Request $request)
+  {
+    $result = Artisan::call('rafa:morocco', ['--apply-defaults' => true, '--enable' => true]);
+    abort_if($result !== 0, 422, 'Morocco setup failed. Check the geographic reference and site languages.');
+    $summary = trim(Artisan::output());
+    Artisan::call('config:clear');
+    Artisan::call('view:clear');
+    if ($request->expectsJson()) {
+      return response()->json(['configured' => true, 'summary' => json_decode($summary, true)]);
+    }
+    Session::flash('success', __('Morocco setup completed'));
+    return redirect()->back();
+  }
+
   public function general_settings()
   {
     $data = [];

@@ -17,19 +17,19 @@ foreach ([
  'languages'=>'id integer primary key, code text',
  'projects'=>'id integer primary key, title text',
  'property_countries'=>'id integer primary key autoincrement, created_at text, updated_at text',
- 'property_country_contents'=>'country_id integer, language_id integer, name text, slug text, updated_at text',
+ 'property_country_contents'=>'country_id integer, language_id integer, name text, updated_at text',
  'property_states'=>'id integer primary key autoincrement, country_id integer, created_at text, updated_at text',
- 'property_state_contents'=>'state_id integer, language_id integer, name text, slug text, updated_at text',
+ 'property_state_contents'=>'state_id integer, language_id integer, name text, updated_at text',
  'property_cities'=>'id integer primary key autoincrement, country_id integer, state_id integer, image text, status integer, serial_number integer, featured integer, created_at text, updated_at text',
  'property_city_contents'=>'city_id integer, language_id integer, name text, slug text, created_at text, updated_at text'
 ] as $table=>$columns) $db->statement("CREATE TABLE $table ($columns)");
 $db->table('languages')->insert([['id'=>1,'code'=>'fr'],['id'=>2,'code'=>'ar']]);
 $db->table('projects')->insert(['id'=>1,'title'=>'Existing listing']);
 function check($condition,$message) { if(!$condition) throw new RuntimeException($message); }
-function runImport($app) {
+function runImport($app, array $options = []) {
  $cmd=new App\Console\Commands\ConfigureMoroccoMarket(); $cmd->setLaravel($app);
  $output=new Symfony\Component\Console\Output\BufferedOutput();
- check($cmd->run(new Symfony\Component\Console\Input\ArrayInput([]),$output)===0,'Import failed');
+ check($cmd->run(new Symfony\Component\Console\Input\ArrayInput($options),$output)===0,'Import failed');
  echo $output->fetch();
 }
 runImport($app);
@@ -51,3 +51,26 @@ check($app['validator']->make($request->all(),App\Support\MoroccoMarket::propert
 $request->merge(['country_id'=>9999,'state_id'=>$city->state_id]);
 check($app['validator']->make($request->all(),App\Support\MoroccoMarket::propertyRules($request,[]))->fails(),'Foreign country accepted');
 echo "PASS: bilingual import, repeat import, missing translation repair, new language, existing listing preservation, valid and invalid locations.\n";
+
+// Exercise defaults on a fresh hosting layout without a storage/app directory.
+$temp = sys_get_temp_dir() . '/morocco-test-' . bin2hex(random_bytes(6));
+mkdir($temp);
+file_put_contents($temp . '/.env', "APP_NAME=Test\n");
+$app->useEnvironmentPath($temp);
+$app->useStoragePath($temp . '/storage');
+$db->statement('CREATE TABLE basic_settings (base_currency_symbol text, base_currency_symbol_position text, base_currency_text text, base_currency_text_position text, timezone text, property_country_status integer, property_state_status integer, address text, contact_number text, email_address text)');
+$db->table('basic_settings')->insert(['timezone'=>'UTC', 'address'=>'Test address']);
+try {
+    runImport($app, ['--apply-defaults'=>true, '--enable'=>true]);
+    $settings = $db->table('basic_settings')->first();
+    check($settings->base_currency_text === 'MAD' && $settings->base_currency_symbol === 'DH' && $settings->timezone === 'Africa/Casablanca', 'Moroccan defaults not applied');
+    check(is_file($temp . '/storage/app/morocco-settings-before.json'), 'Missing backup on fresh hosting layout');
+    check(str_contains(file_get_contents($temp . '/.env'), 'MOROCCO_MARKET=true'), 'Market profile not persisted');
+    echo "PASS: MAD, DH, timezone, environment profile and settings backup on fresh hosting layout.\n";
+} finally {
+    @unlink($temp . '/storage/app/morocco-settings-before.json');
+    @rmdir($temp . '/storage/app');
+    @rmdir($temp . '/storage');
+    @unlink($temp . '/.env');
+    @rmdir($temp);
+}

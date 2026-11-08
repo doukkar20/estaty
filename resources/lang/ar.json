@@ -412,5 +412,8 @@
   "Min Area": "المساحة الدنيا",
   "Max Area": "المساحة القصوى",
   "Moroccan regions": "الجهات المغربية",
-  "Moroccan communes": "الجماعات المغربية"
+  "Moroccan communes": "الجماعات المغربية",
+  "Configure Moroccan cities": "إعداد المدن المغربية",
+  "Import Moroccan locations help": "استيراد 12 جهة و 1503 جماعة. MAD / m².",
+  "Morocco setup completed": "تم إعداد المغرب: 12 جهة و 1503 جماعة."
 }

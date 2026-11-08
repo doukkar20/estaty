@@ -27,6 +27,12 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
+                <form action="{{ route('admin.basic_settings.configure_morocco') }}" method="post" class="p-3 border-bottom">
+                    @csrf
+                    <strong>{{ __('Morocco market') }}</strong>
+                    <p class="mb-2">{{ __('Import Moroccan locations help') }}</p>
+                    <button type="submit" class="btn btn-primary">{{ __('Configure Moroccan cities') }}</button>
+                </form>
                 <form action="{{ route('admin.basic_settings.general_settings.update') }}" method="post"
                     enctype="multipart/form-data">
                     @csrf

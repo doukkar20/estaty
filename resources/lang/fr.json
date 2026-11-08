@@ -416,5 +416,8 @@
   "Min Area": "Superficie minimale",
   "Max Area": "Superficie maximale",
   "Moroccan regions": "Régions marocaines",
-  "Moroccan communes": "Communes marocaines"
+  "Moroccan communes": "Communes marocaines",
+  "Configure Moroccan cities": "Configurer les villes du Maroc",
+  "Import Moroccan locations help": "Importer les 12 régions et 1 503 communes et activer MAD, m² et les localités marocaines. Les prix existants ne sont pas convertis.",
+  "Morocco setup completed": "Maroc configuré : 12 régions et 1 503 communes disponibles."
 }

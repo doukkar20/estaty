@@ -5,7 +5,11 @@
 Le code du site se trouve dans `github-estaty`. Les autres dossiers sont des
 copies installables ou des exports et ne sont pas automatiquement synchronis?s.
 Sauvegarder la base et les fichiers avant toute mise ? jour du site existant.
-Depuis le dossier du site, avec ses d?pendances Composer et sa configuration :
+Dans Administration > Param?tres de base > Param?tres g?n?raux, cliquer sur
+? Configurer les villes du Maroc ?. Cette action authentifi?e importe les localit?s
+et active les r?glages sans terminal.
+
+Autre possibilit?, depuis le dossier du site, avec ses d?pendances Composer et sa configuration :
 
 ```sh
 php artisan rafa:morocco --apply-defaults --enable

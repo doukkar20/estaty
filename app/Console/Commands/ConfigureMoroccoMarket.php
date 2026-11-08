@@ -30,6 +30,14 @@ class ConfigureMoroccoMarket extends Command
             $this->error('Configure the site languages before importing Moroccan locations.');
             return self::FAILURE;
         }
+        // Original installations have no country/region slug columns.
+        foreach (['property_country_contents', 'property_state_contents'] as $tableName) {
+            if (!Schema::hasColumn($tableName, 'slug')) {
+                Schema::table($tableName, function (Blueprint $table) {
+                    $table->string('slug')->nullable()->index();
+                });
+            }
+        }
         foreach (['country_id', 'state_id', 'city_id'] as $column) {
             if (!Schema::hasColumn('projects', $column)) {
                 Schema::table('projects', function (Blueprint $table) use ($column) {
@@ -78,7 +86,11 @@ class ConfigureMoroccoMarket extends Command
             if ($this->option('apply-defaults')) {
                 $fields = ['base_currency_symbol', 'base_currency_symbol_position', 'base_currency_text', 'base_currency_text_position', 'timezone', 'property_country_status', 'property_state_status', 'address', 'contact_number', 'email_address'];
                 $settings = DB::table('basic_settings')->first($fields);
-                $backup = storage_path('app/morocco-settings-before.json');
+                $backupDirectory = storage_path('app');
+                if (!is_dir($backupDirectory) && !mkdir($backupDirectory, 0755, true) && !is_dir($backupDirectory)) {
+                    throw new \RuntimeException('Cannot create the settings backup directory.');
+                }
+                $backup = $backupDirectory . '/morocco-settings-before.json';
                 if (!is_file($backup)) file_put_contents($backup, json_encode($settings, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
                 $changes = ['base_currency_symbol' => 'DH', 'base_currency_symbol_position' => 'right', 'base_currency_text' => 'MAD', 'base_currency_text_position' => 'right', 'timezone' => 'Africa/Casablanca', 'property_country_status' => 1, 'property_state_status' => 1];
                 if (preg_match('/New York|USA|Dhaka|Bangladesh/i', (string) $settings->address)) $changes['address'] = 'Maroc';

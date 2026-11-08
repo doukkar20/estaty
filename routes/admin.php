@@ -690,6 +690,7 @@ Route::prefix('/admin')->middleware('auth:admin')->group(function () {
   // payment-gateway route end
 
   Route::prefix('/basic-settings')->middleware('permission:Basic Settings')->group(function () {
+    Route::post('/configure-morocco', 'BackEnd\BasicSettings\BasicController@configureMorocco')->name('admin.basic_settings.configure_morocco');
     // basic settings favicon route
 
     Route::get('/favicon', 'BackEnd\BasicSettings\BasicController@favicon')->name('admin.basic_settings.favicon');

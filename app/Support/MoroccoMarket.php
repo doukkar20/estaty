@@ -4,6 +4,7 @@ namespace App\Support;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Validation\Rule;
 
 class MoroccoMarket
@@ -16,7 +17,10 @@ class MoroccoMarket
     public static function countryId(): ?int
     {
         if (app()->bound('morocco.country_id')) return app('morocco.country_id') ?: null;
-        $id = DB::table('property_country_contents')->where('slug', 'morocco')->value('country_id');
+        $query = DB::table('property_country_contents');
+        $id = Schema::hasColumn('property_country_contents', 'slug')
+            ? $query->where('slug', 'morocco')->value('country_id')
+            : $query->whereIn('name', ['Morocco', 'Maroc', 'المغرب'])->value('country_id');
         app()->instance('morocco.country_id', (int) $id);
         return $id ? (int) $id : null;
     }

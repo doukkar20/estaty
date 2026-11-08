@@ -364,5 +364,8 @@
   "Min Area": "Minimum area",
   "Max Area": "Maximum area",
   "Moroccan regions": "Moroccan regions",
-  "Moroccan communes": "Moroccan communes"
+  "Moroccan communes": "Moroccan communes",
+  "Configure Moroccan cities": "Configure Moroccan cities",
+  "Import Moroccan locations help": "Import all 12 regions and 1,503 communes and enable MAD, m² and Morocco locations. Existing prices are not converted.",
+  "Morocco setup completed": "Morocco configured: 12 regions and 1,503 communes are ready."
 }
