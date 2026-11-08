@@ -39,6 +39,7 @@
                     </div>
 
                     <div class="card-body">
+                        @include('partials.morocco-settings')
                         <div class="row">
                             <div class="col-lg-10 mx-auto">
                                 <h2 class="mt-3 text-warning">{{ __('Information') }}</h2>

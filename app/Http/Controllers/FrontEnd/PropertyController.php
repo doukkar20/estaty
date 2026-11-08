@@ -239,7 +239,14 @@ class PropertyController extends Controller
                 return $query->where('property_contents.title', 'LIKE', '%' . $title . '%');
             })
             ->when($location, function ($query) use ($location) {
-                return $query->where('property_contents.address', 'LIKE', '%' . $location . '%');
+                return $query->where(function ($locations) use ($location) {
+                    $locations->where('property_contents.address', 'LIKE', '%' . $location . '%')
+                        ->orWhereExists(function ($cityNames) use ($location) {
+                            $cityNames->selectRaw('1')->from('property_city_contents')
+                                ->whereColumn('property_city_contents.city_id', 'properties.city_id')
+                                ->where('property_city_contents.name', 'LIKE', '%' . $location . '%');
+                        });
+                });
             })
             ->with(['categoryContent' => function ($q) use ($language) {
                 $q->where('language_id', $language->id);

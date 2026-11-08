@@ -155,7 +155,7 @@
                                                             @if (!empty($typeContent->max_area))
                                                                 {{ ' - ' . $typeContent->max_area }}
                                                             @endif
-                                                            {{ __('Sqft') }}
+                                                            {{ \App\Support\MoroccoMarket::areaUnit() }}
                                                         </span>
                                                     </li>
                                                     <li class="d-flex align-items-center">

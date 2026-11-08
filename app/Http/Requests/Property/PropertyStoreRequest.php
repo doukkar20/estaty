@@ -74,7 +74,7 @@ class PropertyStoreRequest extends FormRequest
                 $rules[$language->code . '_label'] = 'array|max:' . $vendorCurrentPackage->number_of_property_adittionl_specifications;
             }
         }
-        return $rules;
+        return \App\Support\MoroccoMarket::propertyRules($this, $rules);
     }
 
     /**

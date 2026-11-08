@@ -12,6 +12,11 @@ GitHub Pages cannot execute this application's PHP or MySQL backend.
 This repository preserves the application's original author attribution.
 Local secrets, the live database, and runtime files are excluded from source.
 
+## Morocco setup
+
+See [Morocco launch instructions](docs/MOROCCO-LAUNCH.md) for importing all
+1,503 HCP communes, enabling the Moroccan market, and completing business settings.
+
 ## Original project
 
 # What are you looking for here. Please go back :)

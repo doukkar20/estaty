@@ -89,3 +89,5 @@
         toastr['warning']("{{ __(session('warning')) }}");
     </script>
 @endif
+
+@include('partials.morocco-market')

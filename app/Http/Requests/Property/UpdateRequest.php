@@ -76,7 +76,7 @@ class UpdateRequest extends FormRequest
         $message['category_id.required'] = 'The category field is required.';
         $message['city_id.required'] = 'The city field is required.';
         $message['country_id.required'] = 'The country field is required.';
-        return $rules;
+        return \App\Support\MoroccoMarket::propertyRules($this, $rules);
     }
 
     /**

@@ -110,3 +110,5 @@
 
 {{-- admin-main js --}}
 <script type="text/javascript" src="{{ asset('assets/js/admin-main.js') }}"></script>
+
+@include('partials.morocco-market')

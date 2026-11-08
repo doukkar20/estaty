@@ -226,7 +226,7 @@
 
                                                 <div class="form-group mb-20">
                                                     <label class="mb-10"> {{ __('Area') }}
-                                                        ({{ __('Sqft') }}.)</label>
+                                                        ({{ \App\Support\MoroccoMarket::areaUnit() }}.)</label>
                                                     <input type="text" class="form-control"
                                                         placeholder="{{ __('Enter area') }}"
                                                         onkeydown="if (event.keyCode == 13) updateURL('area='+$(this).val())">

@@ -237,6 +237,7 @@ class ProjectController extends Controller
                 'max_price' => $request->max_price,
                 'featured' => $request->featured,
                 'status' => $request->status,
+                ...\App\Support\MoroccoMarket::projectLocation($request),
                 'latitude' => $request->latitude,
                 'longitude' => $request->longitude,
                 'approve_status' => 1,
@@ -393,6 +394,7 @@ class ProjectController extends Controller
             'max_price' => $request->max_price,
             'featured' => $request->featured,
             'status' => $request->status,
+            ...\App\Support\MoroccoMarket::projectLocation($request),
             'latitude' => $request->latitude,
             'longitude' => $request->longitude
         ]);

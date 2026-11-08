@@ -205,7 +205,8 @@
                                     </div>
 
                                     <div class="col-lg-3">
-                                        <div class="form-group">
+                                        @include('partials.morocco-project-location')
+                                          <div class="form-group">
                                             <label>{{ __('Latitude') }} </label>
                                             <input type="text" class="form-control" value="{{ $project->latitude }}"
                                                 name="latitude" placeholder="Enter Latitude">

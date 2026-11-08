@@ -80,7 +80,7 @@
                                                 <th scope="col">{{ __('Name') }}</th>
                                                 <th scope="col">
                                                     {{ __('Min Price') . ' (' . $settings->base_currency_text . ')' }}</th>
-                                                <th scope="col">{{ __('Min Area (sqft)') }}</th>
+                                                <th scope="col">{{ __('Min Area') . ' (' . \App\Support\MoroccoMarket::areaUnit() . ')' }}</th>
                                                 <th scope="col">{{ __('Total Unit') }}</th>
                                                 <th scope="col">{{ __('Actions') }}</th>
                                             </tr>

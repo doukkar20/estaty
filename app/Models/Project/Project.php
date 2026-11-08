@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+    use \App\Models\Traits\MoroccanLocation;
 
     protected $guarded = [];
     // protected $table = 'projects';

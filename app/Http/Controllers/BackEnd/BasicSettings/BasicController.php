@@ -656,7 +656,9 @@ class BasicController extends Controller
       'base_currency_symbol_position' => 'required',
       'base_currency_text' => 'required',
       'base_currency_text_position' => 'required',
-      'base_currency_rate' => 'required|numeric',
+      'base_currency_rate' => 'required|numeric|gt:0',
+      'timezone' => 'required|timezone',
+      'morocco_market' => 'sometimes|boolean',
       'primary_color' => 'required',
     ];
 
@@ -716,6 +718,7 @@ class BasicController extends Controller
     );
     $array = [
       'APP_TIMEZONE' => $request->timezone,
+      'MOROCCO_MARKET' => $request->boolean('morocco_market') ? 'true' : 'false',
       'APP_NAME' => str_replace(' ', '_', $request->website_title),
     ];
     setEnvironmentValue($array);

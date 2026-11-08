@@ -96,7 +96,7 @@
                                     <li class="icon-start" data-tooltip="tooltip" data-bs-placement="top"
                                         title="{{ __('Area') }}">
                                         <i class="fal fa-vector-square"></i>
-                                        <span>{{ $propertyContent->area }} {{ __('Sqft') }}</span>
+                                        <span>{{ $propertyContent->area }} {{ \App\Support\MoroccoMarket::areaUnit() }}</span>
                                     </li>
                                     @if ($propertyContent->type == 'residential')
                                         <li class="icon-start" data-tooltip="tooltip" data-bs-placement="top"

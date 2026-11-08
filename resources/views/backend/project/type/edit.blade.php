@@ -68,7 +68,7 @@
                                             <div class="col-lg-6">
                                                 <div
                                                     class="form-group {{ $language->direction == 1 ? 'rtl text-right' : '' }}">
-                                                    <label>{{ __('Min Area (sqft)') . '*' }}</label>
+                                                    <label>{{ __('Min Area') . ' (' . \App\Support\MoroccoMarket::areaUnit() . ')' . '*' }}</label>
                                                     <input type="text" name="{{ $language->code }}_min_area"
                                                         id="in_{{ $language->code }}_min_area" class="form-control"
                                                         placeholder="Enter Minimum Area">
@@ -78,7 +78,7 @@
                                             <div class="col-lg-6">
                                                 <div
                                                     class="form-group {{ $language->direction == 1 ? 'rtl text-right' : '' }}">
-                                                    <label>{{ __('Max Area (sqft)') }}</label>
+                                                    <label>{{ __('Max Area') . ' (' . \App\Support\MoroccoMarket::areaUnit() . ')' }}</label>
                                                     <input type="text" name="{{ $language->code }}_max_area"
                                                         id="in_{{ $language->code }}_max_area" class="form-control"
                                                         placeholder="Enter Maximum Area">

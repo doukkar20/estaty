@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class State extends Model
 {
     use HasFactory;
+    use \App\Models\Traits\MoroccanLocation;
 
     protected $table = 'property_states';
     protected $guarded = [];

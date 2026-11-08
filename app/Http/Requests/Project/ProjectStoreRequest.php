@@ -69,7 +69,7 @@ class ProjectStoreRequest extends FormRequest
             }
         }
 
-        return $rules;
+        return \App\Support\MoroccoMarket::projectRules($rules);
     }
     /**
      * Get custom messages for validator errors.

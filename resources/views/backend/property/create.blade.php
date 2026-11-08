@@ -255,9 +255,9 @@
                                     @endif
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label>{{ __('Area (sqft)') }} *</label>
+                                            <label>{{ __('Area') . ' (' . \App\Support\MoroccoMarket::areaUnit() . ')' }} *</label>
                                             <input type="text" class="form-control" name="area"
-                                                placeholder="Enter area (sqft) ">
+                                                placeholder="{{ __('Area') }} ({{ \App\Support\MoroccoMarket::areaUnit() }})">
                                         </div>
                                     </div>
 
