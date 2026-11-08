@@ -34,19 +34,19 @@
                         <ul class="nav">
                             <li>
                                 <a href="{{ route('admin.edit_profile') }}">
-                                    <span class="link-collapse">{{ 'Edit Profile' }}</span>
+                                    <span class="link-collapse">{{ __('Edit Profile') }}</span>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{{ route('admin.change_password') }}">
-                                    <span class="link-collapse">{{ 'Change Password' }}</span>
+                                    <span class="link-collapse">{{ __('Change Password') }}</span>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{{ route('admin.logout') }}">
-                                    <span class="link-collapse">{{ 'Logout' }}</span>
+                                    <span class="link-collapse">{{ __('Logout') }}</span>
                                 </a>
                             </li>
                         </ul>
@@ -67,7 +67,7 @@
                         <form action="">
                             <div class="form-group py-0">
                                 <input name="term" type="text" class="form-control sidebar-search ltr"
-                                    placeholder="Search Menu Here...">
+                                    placeholder="{{ __('Search the menu') }}" aria-label="{{ __('Search the menu') }}">
                             </div>
                         </form>
                     </div>
@@ -77,7 +77,7 @@
                 <li class="nav-item @if (request()->routeIs('admin.dashboard')) active @endif">
                     <a href="{{ route('admin.dashboard') }}">
                         <i class="la flaticon-paint-palette"></i>
-                        <p>{{ 'Dashboard' }}</p>
+                        <p>{{ __('Dashboard') }}</p>
                     </a>
                 </li>
 
@@ -220,7 +220,7 @@
                         class="nav-item @if (request()->routeIs('admin.featured_pricing.index')) active @elseif(request()->routeIs('admin.featured_pricing.edit')) active @elseif(request()->routeIs('admin.requested_for_featured')) active @endif">
                         <a data-toggle="collapse" href="#featuredPricing">
                             <i class="far fa-money-bill-alt"></i>
-                            <p>{{ 'Featured Properties' }}</p>
+                            <p>{{ __('Featured Properties') }}</p>
 
                             <span class="caret"></span>
                         </a>
@@ -233,33 +233,33 @@
                                 <li
                                     class="{{ request()->routeIs('admin.featured_pricing.index') || request()->routeIs('admin.featured_pricing.edit') ? 'active' : '' }}">
                                     <a href="{{ route('admin.featured_pricing.index') }}">
-                                        <span class="sub-item">{{ 'Pricing' }}</span>
+                                        <span class="sub-item">{{ __('Pricing') }}</span>
                                     </a>
                                 </li>
 
                                 <li
                                     class="{{ request()->routeIs('admin.requested_for_featured') && request()->input('status') == 'all' ? 'active' : '' }}">
                                     <a href="{{ route('admin.requested_for_featured', ['status' => 'all']) }}">
-                                        <span class="sub-item">{{ 'All Request' }}</span>
+                                        <span class="sub-item">{{ __('All Request') }}</span>
                                     </a>
                                 </li>
                                 <li
                                     class="{{ request()->routeIs('admin.requested_for_featured') && request()->input('status') == 'pending' ? 'active' : '' }}">
                                     <a href="{{ route('admin.requested_for_featured', ['status' => 'pending']) }}">
-                                        <span class="sub-item">{{ 'Pending Request' }}</span>
+                                        <span class="sub-item">{{ __('Pending Request') }}</span>
                                     </a>
                                 </li>
 
                                 <li
                                     class="{{ request()->routeIs('admin.requested_for_featured') && request()->input('status') == 'accepted' ? 'active' : '' }}">
                                     <a href="{{ route('admin.requested_for_featured', ['status' => 'accepted']) }}">
-                                        <span class="sub-item">{{ 'Accepted Request' }}</span>
+                                        <span class="sub-item">{{ __('Accepted Request') }}</span>
                                     </a>
                                 </li>
                                 <li
                                     class="{{ request()->routeIs('admin.requested_for_featured') && request()->input('status') == 'rejected' ? 'active' : '' }}">
                                     <a href="{{ route('admin.requested_for_featured', ['status' => 'rejected']) }}">
-                                        <span class="sub-item">{{ 'Rejected Request' }}</span>
+                                        <span class="sub-item">{{ __('Rejected Request') }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -341,7 +341,7 @@
                     <li class="nav-item  @if (request()->routeIs('admin.agent_management.index')) active @endif">
                         <a href="{{ route('admin.agent_management.index') }}">
                             <i class="fal fa-users-cog"></i>
-                            <p> {{ 'Agents' }} </p>
+                            <p> {{ __('Agents') }} </p>
                         </a>
                     </li>
                 @endif
@@ -355,7 +355,7 @@
             @elseif (request()->routeIs('admin.package.edit')) active @endif">
                         <a data-toggle="collapse" href="#packageManagement">
                             <i class="fal fa-receipt"></i>
-                            <p>{{ 'Package Management' }}</p>
+                            <p>{{ __('Package Management') }}</p>
                             <span class="caret"></span>
                         </a>
 
@@ -368,13 +368,13 @@
 
                                 <li class="{{ request()->routeIs('admin.package.settings') ? 'active' : '' }}">
                                     <a href="{{ route('admin.package.settings') }}">
-                                        <span class="sub-item">{{ 'Settings' }}</span>
+                                        <span class="sub-item">{{ __('Settings') }}</span>
                                     </a>
                                 </li>
 
                                 <li class="{{ request()->routeIs('admin.package.index') ? 'active' : '' }}">
                                     <a href="{{ route('admin.package.index') }}">
-                                        <span class="sub-item">{{ 'Packages' }}</span>
+                                        <span class="sub-item">{{ __('Packages') }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -388,7 +388,7 @@
                     <li class="nav-item @if (request()->routeIs('admin.menu_builder')) active @endif">
                         <a href="{{ route('admin.menu_builder', ['language' => $defaultLang->code]) }}">
                             <i class="fal fa-bars"></i>
-                            <p>{{ 'Menu Builder' }}</p>
+                            <p>{{ __('Menu Builder') }}</p>
                         </a>
                     </li>
                 @endif
@@ -400,7 +400,7 @@
                     <li class="nav-item @if (request()->routeIs('admin.payment-log.index')) active @endif">
                         <a href="{{ route('admin.payment-log.index') }}">
                             <i class="fas fa-list-ol"></i>
-                            <p>{{ 'Payment Log' }}</p>
+                            <p>{{ __('Payment Log') }}</p>
                         </a>
                     </li>
                 @endif
@@ -416,7 +416,7 @@
             @elseif (request()->routeIs('admin.user_management.mail_for_subscribers')) active @endif">
                         <a data-toggle="collapse" href="#user">
                             <i class="la flaticon-users"></i>
-                            <p>{{ 'Users Management' }}</p>
+                            <p>{{ __('Users Management') }}</p>
                             <span class="caret"></span>
                         </a>
 
@@ -436,14 +436,14 @@
 active @endif
                   ">
                                     <a href="{{ route('admin.user_management.registered_users') }}">
-                                        <span class="sub-item">{{ 'Registered Users' }}</span>
+                                        <span class="sub-item">{{ __('Registered Users') }}</span>
                                     </a>
                                 </li>
 
                                 <li class="@if (request()->routeIs('admin.user_management.registered_user.create')) active @endif
                   ">
                                     <a href="{{ route('admin.user_management.registered_user.create') }}">
-                                        <span class="sub-item">{{ 'Add User' }}</span>
+                                        <span class="sub-item">{{ __('Add User') }}</span>
                                     </a>
                                 </li>
 
@@ -451,7 +451,7 @@ active @endif
                                     class="@if (request()->routeIs('admin.user_management.subscribers')) active 
                   @elseif (request()->routeIs('admin.user_management.mail_for_subscribers')) active @endif">
                                     <a href="{{ route('admin.user_management.subscribers') }}">
-                                        <span class="sub-item">{{ 'Subscribers' }}</span>
+                                        <span class="sub-item">{{ __('Subscribers') }}</span>
                                     </a>
                                 </li>
 
@@ -472,7 +472,7 @@ active @endif
             @elseif (request()->routeIs('admin.vendor_management.vendor.change_password')) active @endif">
                         <a data-toggle="collapse" href="#vendor">
                             <i class="la flaticon-users"></i>
-                            <p>{{ 'Vendors Management' }}</p>
+                            <p>{{ __('Vendors Management') }}</p>
                             <span class="caret"></span>
                         </a>
 
@@ -487,7 +487,7 @@ active @endif
                             <ul class="nav nav-collapse">
                                 <li class="@if (request()->routeIs('admin.vendor_management.settings')) active @endif">
                                     <a href="{{ route('admin.vendor_management.settings') }}">
-                                        <span class="sub-item">{{ 'Settings' }}</span>
+                                        <span class="sub-item">{{ __('Settings') }}</span>
                                     </a>
                                 </li>
                                 <li
@@ -496,12 +496,12 @@ active @endif
                   @elseif (request()->routeIs('admin.edit_management.vendor_edit')) active
                   @elseif (request()->routeIs('admin.vendor_management.vendor.change_password')) active @endif">
                                     <a href="{{ route('admin.vendor_management.registered_vendor') }}">
-                                        <span class="sub-item">{{ 'Registered vendors' }}</span>
+                                        <span class="sub-item">{{ __('Registered vendors') }}</span>
                                     </a>
                                 </li>
                                 <li class="@if (request()->routeIs('admin.vendor_management.add_vendor')) active @endif">
                                     <a href="{{ route('admin.vendor_management.add_vendor') }}">
-                                        <span class="sub-item">{{ 'Add vendor' }}</span>
+                                        <span class="sub-item">{{ __('Add vendor') }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -519,7 +519,7 @@ active @endif
             @elseif (request()->routeIs('admin.support_tickets.message')) active active @endif">
                         <a data-toggle="collapse" href="#support_ticket">
                             <i class="la flaticon-web-1"></i>
-                            <p>{{ 'Support Tickets' }}</p>
+                            <p>{{ __('Support Tickets') }}</p>
                             <span class="caret"></span>
                         </a>
 
@@ -531,31 +531,31 @@ active @endif
                             <ul class="nav nav-collapse">
                                 <li class="@if (request()->routeIs('admin.support_ticket.setting')) active @endif">
                                     <a href="{{ route('admin.support_ticket.setting') }}">
-                                        <span class="sub-item">{{ 'Setting' }}</span>
+                                        <span class="sub-item">{{ __('Setting') }}</span>
                                     </a>
                                 </li>
                                 <li
                                     class="{{ request()->routeIs('admin.support_tickets') && empty(request()->input('status')) ? 'active' : '' }}">
                                     <a href="{{ route('admin.support_tickets') }}">
-                                        <span class="sub-item">{{ 'All Tickets' }}</span>
+                                        <span class="sub-item">{{ __('All Tickets') }}</span>
                                     </a>
                                 </li>
                                 <li
                                     class="{{ request()->routeIs('admin.support_tickets') && request()->input('status') == 1 ? 'active' : '' }}">
                                     <a href="{{ route('admin.support_tickets', ['status' => 1]) }}">
-                                        <span class="sub-item">{{ 'Pending Tickets' }}</span>
+                                        <span class="sub-item">{{ __('Pending Tickets') }}</span>
                                     </a>
                                 </li>
                                 <li
                                     class="{{ request()->routeIs('admin.support_tickets') && request()->input('status') == 2 ? 'active' : '' }}">
                                     <a href="{{ route('admin.support_tickets', ['status' => 2]) }}">
-                                        <span class="sub-item">{{ 'Open Tickets' }}</span>
+                                        <span class="sub-item">{{ __('Open Tickets') }}</span>
                                     </a>
                                 </li>
                                 <li
                                     class="{{ request()->routeIs('admin.support_tickets') && request()->input('status') == 3 ? 'active' : '' }}">
                                     <a href="{{ route('admin.support_tickets', ['status' => 3]) }}">
-                                        <span class="sub-item">{{ 'Closed Tickets' }}</span>
+                                        <span class="sub-item">{{ __('Closed Tickets') }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -591,7 +591,7 @@ active @endif
             @elseif (request()->routeIs('admin.home_page.partners')) active @endif">
                         <a data-toggle="collapse" href="#home_page">
                             <i class="fal fa-layer-group"></i>
-                            <p>{{ 'Home Page' }}</p>
+                            <p>{{ __('Home Page') }}</p>
                             <span class="caret"></span>
                         </a>
 
@@ -621,7 +621,7 @@ active @endif
                             <ul class="nav nav-collapse">
                                 <li class="submenu">
                                     <a data-toggle="collapse" href="#hero_section">
-                                        <span class="sub-item">{{ 'Hero Section' }}</span>
+                                        <span class="sub-item">{{ __('Hero Section') }}</span>
                                         <span class="caret"></span>
                                     </a>
 
@@ -634,7 +634,7 @@ active @endif
                                                     class="{{ request()->routeIs('admin.home_page.hero_section.slider_version') ? 'active' : '' }}">
                                                     <a
                                                         href="{{ route('admin.home_page.hero_section.slider_version', ['language' => $defaultLang->code]) }}">
-                                                        <span class="sub-item">{{ 'Slider Version' }}</span>
+                                                        <span class="sub-item">{{ __('Slider Version') }}</span>
                                                     </a>
                                                 </li>
                                             @else
@@ -642,7 +642,7 @@ active @endif
                                                     class="{{ request()->routeIs('admin.home_page.hero_section.static_version') ? 'active' : '' }}">
                                                     <a
                                                         href="{{ route('admin.home_page.hero_section.static_version', ['language' => $defaultLang->code]) }}">
-                                                        <span class="sub-item">{{ 'Static Version' }}</span>
+                                                        <span class="sub-item">{{ __('Static Version') }}</span>
                                                     </a>
                                                 </li>
                                             @endif
@@ -655,7 +655,7 @@ active @endif
                                         class="{{ request()->routeIs('admin.home_page.category_section') ? 'active' : '' }}">
                                         <a
                                             href="{{ route('admin.home_page.category_section', ['language' => $defaultLang->code]) }}">
-                                            <span class="sub-item">{{ 'Category Section' }}</span>
+                                            <span class="sub-item">{{ __('Category Section') }}</span>
                                         </a>
                                     </li>
                                 @endif
@@ -664,7 +664,7 @@ active @endif
                                         class="{{ request()->routeIs('admin.home_page.about_section') ? 'active' : '' }}">
                                         <a
                                             href="{{ route('admin.home_page.about_section', ['language' => $defaultLang->code]) }}">
-                                            <span class="sub-item">{{ 'About Section' }}</span>
+                                            <span class="sub-item">{{ __('About Section') }}</span>
                                         </a>
                                     </li>
                                 @endif
@@ -674,7 +674,7 @@ active @endif
                                         class="{{ request()->routeIs('admin.home_page.why_choose_us_section') ? 'active' : '' }}">
                                         <a
                                             href="{{ route('admin.home_page.why_choose_us_section', ['language' => $defaultLang->code]) }}">
-                                            <span class="sub-item">{{ 'Why Choose Us Section' }}</span>
+                                            <span class="sub-item">{{ __('Why Choose Us Section') }}</span>
                                         </a>
                                     </li>
                                 @endif
@@ -684,7 +684,7 @@ active @endif
                                         class="{{ request()->routeIs('admin.home_page.brand_section') ? 'active' : '' }}">
                                         <a
                                             href="{{ route('admin.home_page.brand_section', ['language' => $defaultLang->code]) }}">
-                                            <span class="sub-item">{{ 'Brand Section' }}</span>
+                                            <span class="sub-item">{{ __('Brand Section') }}</span>
                                         </a>
                                         </>
                                 @endif
@@ -693,7 +693,7 @@ active @endif
                                     class="{{ request()->routeIs('admin.home_page.property_section') ? 'active' : '' }}">
                                     <a
                                         href="{{ route('admin.home_page.property_section', ['language' => $defaultLang->code]) }}">
-                                        <span class="sub-item">{{ 'Property Section' }}</span>
+                                        <span class="sub-item">{{ __('Property Section') }}</span>
                                     </a>
                                 </li>
 
@@ -703,7 +703,7 @@ active @endif
                                         class="{{ request()->routeIs('admin.home_page.feature_section') ? 'active' : '' }}">
                                         <a
                                             href="{{ route('admin.home_page.feature_section', ['language' => $defaultLang->code]) }}">
-                                            <span class="sub-item">{{ 'Featured Property Section' }}</span>
+                                            <span class="sub-item">{{ __('Featured Property Section') }}</span>
                                         </a>
                                     </li>
                                 @endif
@@ -712,7 +712,7 @@ active @endif
                                         class="{{ request()->routeIs('admin.home_page.project_section') ? 'active' : '' }}">
                                         <a
                                             href="{{ route('admin.home_page.project_section', ['language' => $defaultLang->code]) }}">
-                                            <span class="sub-item">{{ 'Project Section' }}</span>
+                                            <span class="sub-item">{{ __('Project Section') }}</span>
                                         </a>
                                         </>
                                 @endif
@@ -722,7 +722,7 @@ active @endif
                                         class="{{ request()->routeIs('admin.home_page.pricing_section') ? 'active' : '' }}">
                                         <a
                                             href="{{ route('admin.home_page.pricing_section', ['language' => $defaultLang->code]) }}">
-                                            <span class="sub-item">{{ 'Pricing Section' }}</span>
+                                            <span class="sub-item">{{ __('Pricing Section') }}</span>
                                         </a>
                                         </>
                                 @endif
@@ -732,7 +732,7 @@ active @endif
                                         class="{{ request()->routeIs('admin.home_page.work_process_section') ? 'active' : '' }}">
                                         <a
                                             href="{{ route('admin.home_page.work_process_section', ['language' => $defaultLang->code]) }}">
-                                            <span class="sub-item">{{ 'Work Process Section' }}</span>
+                                            <span class="sub-item">{{ __('Work Process Section') }}</span>
                                         </a>
                                     </li>
                                 @endif
@@ -741,7 +741,7 @@ active @endif
                                         class="{{ request()->routeIs('admin.home_page.counter_section') ? 'active' : '' }}">
                                         <a
                                             href="{{ route('admin.home_page.counter_section', ['language' => $defaultLang->code]) }}">
-                                            <span class="sub-item">{{ 'Counter Section' }}</span>
+                                            <span class="sub-item">{{ __('Counter Section') }}</span>
                                         </a>
                                     </li>
                                 @endif
@@ -751,7 +751,7 @@ active @endif
                                         class="{{ request()->routeIs('admin.home_page.city_section') ? 'active' : '' }}">
                                         <a
                                             href="{{ route('admin.home_page.city_section', ['language' => $defaultLang->code]) }}">
-                                            <span class="sub-item">{{ 'City Section' }}</span>
+                                            <span class="sub-item">{{ __('City Section') }}</span>
                                         </a>
                                     </li>
                                 @endif
@@ -760,7 +760,7 @@ active @endif
                                     class="{{ request()->routeIs('admin.home_page.testimonial_section') ? 'active' : '' }}">
                                     <a
                                         href="{{ route('admin.home_page.testimonial_section', ['language' => $defaultLang->code]) }}">
-                                        <span class="sub-item">{{ 'Testimonial Section' }}</span>
+                                        <span class="sub-item">{{ __('Testimonial Section') }}</span>
                                     </a>
                                 </li>
 
@@ -771,7 +771,7 @@ active @endif
                                         class="{{ request()->routeIs('admin.home_page.call_to_action_section') ? 'active' : '' }}">
                                         <a
                                             href="{{ route('admin.home_page.call_to_action_section', ['language' => $defaultLang->code]) }}">
-                                            <span class="sub-item">{{ 'Call To Action Section' }}</span>
+                                            <span class="sub-item">{{ __('Call To Action Section') }}</span>
                                         </a>
                                     </li>
                                 @endif
@@ -781,7 +781,7 @@ active @endif
                                         class="{{ request()->routeIs('admin.home_page.vendor_section') ? 'active' : '' }}">
                                         <a
                                             href="{{ route('admin.home_page.vendor_section', ['language' => $defaultLang->code]) }}">
-                                            <span class="sub-item">{{ 'Vendor Section' }}</span>
+                                            <span class="sub-item">{{ __('Vendor Section') }}</span>
                                         </a>
                                     </li>
                                 @endif
@@ -791,7 +791,7 @@ active @endif
                                         class="{{ request()->routeIs('admin.home_page.subscribe_section') ? 'active' : '' }}">
                                         <a
                                             href="{{ route('admin.home_page.subscribe_section', ['language' => $defaultLang->code]) }}">
-                                            <span class="sub-item">{{ 'Subscribe Section' }}</span>
+                                            <span class="sub-item">{{ __('Subscribe Section') }}</span>
                                         </a>
                                     </li>
                                 @endif
@@ -799,7 +799,7 @@ active @endif
                                 <li
                                     class="{{ request()->routeIs('admin.home_page.section_customization') ? 'active' : '' }}">
                                     <a href="{{ route('admin.home_page.section_customization') }}">
-                                        <span class="sub-item">{{ 'Section Show/Hide' }}</span>
+                                        <span class="sub-item">{{ __('Section Show/Hide') }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -817,7 +817,7 @@ active @endif
             @elseif (request()->routeIs('admin.footer.quick_links')) active @endif">
                         <a data-toggle="collapse" href="#footer">
                             <i class="fal fa-shoe-prints"></i>
-                            <p>{{ 'Footer' }}</p>
+                            <p>{{ __('Footer') }}</p>
                             <span class="caret"></span>
                         </a>
 
@@ -828,21 +828,21 @@ active @endif
                             <ul class="nav nav-collapse">
                                 <li class="{{ request()->routeIs('admin.footer.logo_and_image') ? 'active' : '' }}">
                                     <a href="{{ route('admin.footer.logo_and_image') }}">
-                                        <span class="sub-item">{{ 'Logo & Image' }}</span>
+                                        <span class="sub-item">{{ __('Logo & Image') }}</span>
                                     </a>
                                 </li>
 
                                 <li class="{{ request()->routeIs('admin.footer.content') ? 'active' : '' }}">
                                     <a
                                         href="{{ route('admin.footer.content', ['language' => $defaultLang->code]) }}">
-                                        <span class="sub-item">{{ 'Content' }}</span>
+                                        <span class="sub-item">{{ __('Content') }}</span>
                                     </a>
                                 </li>
 
                                 <li class="{{ request()->routeIs('admin.footer.quick_links') ? 'active' : '' }}">
                                     <a
                                         href="{{ route('admin.footer.quick_links', ['language' => $defaultLang->code]) }}">
-                                        <span class="sub-item">{{ 'Quick Links' }}</span>
+                                        <span class="sub-item">{{ __('Quick Links') }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -858,7 +858,7 @@ active @endif
             @elseif (request()->routeIs('admin.custom_pages.edit_page')) active @endif">
                         <a href="{{ route('admin.custom_pages', ['language' => $defaultLang->code]) }}">
                             <i class="la flaticon-file"></i>
-                            <p>{{ 'Custom Pages' }}</p>
+                            <p>{{ __('Custom Pages') }}</p>
                         </a>
                     </li>
                 @endif
@@ -872,7 +872,7 @@ active @endif
             @elseif (request()->routeIs('admin.blog_management.edit_blog')) active @endif">
                         <a data-toggle="collapse" href="#blog">
                             <i class="fal fa-blog"></i>
-                            <p>{{ 'Blog Management' }}</p>
+                            <p>{{ __('Blog Management') }}</p>
                             <span class="caret"></span>
                         </a>
 
@@ -887,7 +887,7 @@ active @endif
                                     class="{{ request()->routeIs('admin.blog_management.categories') ? 'active' : '' }}">
                                     <a
                                         href="{{ route('admin.blog_management.categories', ['language' => $defaultLang->code]) }}">
-                                        <span class="sub-item">{{ 'Categories' }}</span>
+                                        <span class="sub-item">{{ __('Categories') }}</span>
                                     </a>
                                 </li>
 
@@ -899,7 +899,7 @@ active @endif
                   @elseif (request()->routeIs('admin.blog_management.edit_blog')) active @endif">
                                     <a
                                         href="{{ route('admin.blog_management.blogs', ['language' => $defaultLang->code]) }}">
-                                        <span class="sub-item">{{ 'Posts' }}</span>
+                                        <span class="sub-item">{{ __('Posts') }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -912,7 +912,7 @@ active @endif
                     <li class="nav-item {{ request()->routeIs('admin.faq_management') ? 'active' : '' }}">
                         <a href="{{ route('admin.faq_management', ['language' => $defaultLang->code]) }}">
                             <i class="la flaticon-round"></i>
-                            <p>{{ 'FAQ Management' }}</p>
+                            <p>{{ __('FAQ Management') }}</p>
                         </a>
                     </li>
                 @endif
@@ -924,7 +924,7 @@ active @endif
             @elseif (request()->routeIs('admin.advertise.all_advertisement')) active @endif">
                         <a data-toggle="collapse" href="#customid">
                             <i class="fab fa-buysellads"></i>
-                            <p>{{ 'Advertisements' }}</p>
+                            <p>{{ __('Advertisements') }}</p>
                             <span class="caret"></span>
                         </a>
 
@@ -934,14 +934,14 @@ active @endif
                             <ul class="nav nav-collapse">
                                 <li class="{{ request()->routeIs('admin.advertise.settings') ? 'active' : '' }}">
                                     <a href="{{ route('admin.advertise.settings') }}">
-                                        <span class="sub-item">{{ 'Settings' }}</span>
+                                        <span class="sub-item">{{ __('Settings') }}</span>
                                     </a>
                                 </li>
 
                                 <li
                                     class="{{ request()->routeIs('admin.advertise.all_advertisement') ? 'active' : '' }}">
                                     <a href="{{ route('admin.advertise.all_advertisement') }}">
-                                        <span class="sub-item">{{ 'All Advertisements' }}</span>
+                                        <span class="sub-item">{{ __('All Advertisements') }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -958,7 +958,7 @@ active @endif
             @elseif (request()->routeIs('admin.announcement_popups.edit_popup')) active @endif">
                         <a href="{{ route('admin.announcement_popups', ['language' => $defaultLang->code]) }}">
                             <i class="fal fa-bullhorn"></i>
-                            <p>{{ 'Announcement Popups' }}</p>
+                            <p>{{ __('Announcement Popups') }}</p>
                         </a>
                     </li>
                 @endif
@@ -985,7 +985,7 @@ active @endif
             @elseif (request()->routeIs('admin.basic_settings.social_medias')) active @endif">
                         <a data-toggle="collapse" href="#basic_settings">
                             <i class="la flaticon-settings"></i>
-                            <p>{{ 'Basic Settings' }}</p>
+                            <p>{{ __('Basic Settings') }}</p>
                             <span class="caret"></span>
                         </a>
 
@@ -1008,20 +1008,20 @@ active @endif
                                 <li
                                     class="{{ request()->routeIs('admin.basic_settings.general_settings') ? 'active' : '' }}">
                                     <a href="{{ route('admin.basic_settings.general_settings') }}">
-                                        <span class="sub-item">{{ 'General Settings' }}</span>
+                                        <span class="sub-item">{{ __('General Settings') }}</span>
                                     </a>
                                 </li>
 
                                 <li
                                     class="{{ request()->routeIs('admin.basic_settings.contact_page') ? 'active' : '' }}">
                                     <a href="{{ route('admin.basic_settings.contact_page') }}">
-                                        <span class="sub-item">{{ 'Contact Page' }}</span>
+                                        <span class="sub-item">{{ __('Contact Page') }}</span>
                                     </a>
                                 </li>
 
                                 <li class="submenu">
                                     <a data-toggle="collapse" href="#mail-settings">
-                                        <span class="sub-item">{{ 'Email Settings' }}</span>
+                                        <span class="sub-item">{{ __('Email Settings') }}</span>
                                         <span class="caret"></span>
                                     </a>
 
@@ -1035,14 +1035,14 @@ active @endif
                                             <li
                                                 class="{{ request()->routeIs('admin.basic_settings.mail_from_admin') ? 'active' : '' }}">
                                                 <a href="{{ route('admin.basic_settings.mail_from_admin') }}">
-                                                    <span class="sub-item">{{ 'Mail From Admin' }}</span>
+                                                    <span class="sub-item">{{ __('Mail From Admin') }}</span>
                                                 </a>
                                             </li>
 
                                             <li
                                                 class="{{ request()->routeIs('admin.basic_settings.mail_to_admin') ? 'active' : '' }}">
                                                 <a href="{{ route('admin.basic_settings.mail_to_admin') }}">
-                                                    <span class="sub-item">{{ 'Mail To Admin' }}</span>
+                                                    <span class="sub-item">{{ __('Mail To Admin') }}</span>
                                                 </a>
                                             </li>
 
@@ -1050,7 +1050,7 @@ active @endif
                                                 class="@if (request()->routeIs('admin.basic_settings.mail_templates')) active 
                         @elseif (request()->routeIs('admin.basic_settings.edit_mail_template')) active @endif">
                                                 <a href="{{ route('admin.basic_settings.mail_templates') }}">
-                                                    <span class="sub-item">{{ 'Mail Templates' }}</span>
+                                                    <span class="sub-item">{{ __('Mail Templates') }}</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -1060,7 +1060,7 @@ active @endif
                                 <li
                                     class="{{ request()->routeIs('admin.basic_settings.breadcrumb') ? 'active' : '' }}">
                                     <a href="{{ route('admin.basic_settings.breadcrumb') }}">
-                                        <span class="sub-item">{{ 'Breadcrumb' }}</span>
+                                        <span class="sub-item">{{ __('Breadcrumb') }}</span>
                                     </a>
                                 </li>
 
@@ -1069,27 +1069,27 @@ active @endif
                                     class="{{ request()->routeIs('admin.basic_settings.page_headings') ? 'active' : '' }}">
                                     <a
                                         href="{{ route('admin.basic_settings.page_headings', ['language' => $defaultLang->code]) }}">
-                                        <span class="sub-item">{{ 'Page Headings' }}</span>
+                                        <span class="sub-item">{{ __('Page Headings') }}</span>
                                     </a>
                                 </li>
 
                                 <li class="{{ request()->routeIs('admin.basic_settings.plugins') ? 'active' : '' }}">
                                     <a href="{{ route('admin.basic_settings.plugins') }}">
-                                        <span class="sub-item">{{ 'Plugins' }}</span>
+                                        <span class="sub-item">{{ __('Plugins') }}</span>
                                     </a>
                                 </li>
 
                                 <li class="{{ request()->routeIs('admin.basic_settings.seo') ? 'active' : '' }}">
                                     <a
                                         href="{{ route('admin.basic_settings.seo', ['language' => $defaultLang->code]) }}">
-                                        <span class="sub-item">{{ 'SEO Informations' }}</span>
+                                        <span class="sub-item">{{ __('SEO Informations') }}</span>
                                     </a>
                                 </li>
 
                                 <li
                                     class="{{ request()->routeIs('admin.basic_settings.maintenance_mode') ? 'active' : '' }}">
                                     <a href="{{ route('admin.basic_settings.maintenance_mode') }}">
-                                        <span class="sub-item">{{ 'Maintenance Mode' }}</span>
+                                        <span class="sub-item">{{ __('Maintenance Mode') }}</span>
                                     </a>
                                 </li>
 
@@ -1097,14 +1097,14 @@ active @endif
                                     class="{{ request()->routeIs('admin.basic_settings.cookie_alert') ? 'active' : '' }}">
                                     <a
                                         href="{{ route('admin.basic_settings.cookie_alert', ['language' => $defaultLang->code]) }}">
-                                        <span class="sub-item">{{ 'Cookie Alert' }}</span>
+                                        <span class="sub-item">{{ __('Cookie Alert') }}</span>
                                     </a>
                                 </li>
 
                                 <li
                                     class="{{ request()->routeIs('admin.basic_settings.social_medias') ? 'active' : '' }}">
                                     <a href="{{ route('admin.basic_settings.social_medias') }}">
-                                        <span class="sub-item">{{ 'Social Medias' }}</span>
+                                        <span class="sub-item">{{ __('Social Medias') }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -1118,7 +1118,7 @@ active @endif
             @elseif (request()->routeIs('admin.payment_gateways.offline_gateways')) active @endif">
                         <a data-toggle="collapse" href="#payment_gateways">
                             <i class="la flaticon-paypal"></i>
-                            <p>{{ 'Payment Gateways' }}</p>
+                            <p>{{ __('Payment Gateways') }}</p>
                             <span class="caret"></span>
                         </a>
 
@@ -1130,14 +1130,14 @@ active @endif
                                 <li
                                     class="{{ request()->routeIs('admin.payment_gateways.online_gateways') ? 'active' : '' }}">
                                     <a href="{{ route('admin.payment_gateways.online_gateways') }}">
-                                        <span class="sub-item">{{ 'Online Gateways' }}</span>
+                                        <span class="sub-item">{{ __('Online Gateways') }}</span>
                                     </a>
                                 </li>
 
                                 <li
                                     class="{{ request()->routeIs('admin.payment_gateways.offline_gateways') ? 'active' : '' }}">
                                     <a href="{{ route('admin.payment_gateways.offline_gateways') }}">
-                                        <span class="sub-item">{{ 'Offline Gateways' }}</span>
+                                        <span class="sub-item">{{ __('Offline Gateways') }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -1154,7 +1154,7 @@ active @endif
             @elseif (request()->routeIs('admin.admin_management.registered_admins')) active @endif">
                         <a data-toggle="collapse" href="#admin">
                             <i class="fal fa-users-cog"></i>
-                            <p>{{ 'Admin Management' }}</p>
+                            <p>{{ __('Admin Management') }}</p>
                             <span class="caret"></span>
                         </a>
 
@@ -1168,14 +1168,14 @@ active @endif
                                     class="@if (request()->routeIs('admin.admin_management.role_permissions')) active 
                   @elseif (request()->routeIs('admin.admin_management.role.permissions')) active @endif">
                                     <a href="{{ route('admin.admin_management.role_permissions') }}">
-                                        <span class="sub-item">{{ 'Role & Permissions' }}</span>
+                                        <span class="sub-item">{{ __('Role & Permissions') }}</span>
                                     </a>
                                 </li>
 
                                 <li
                                     class="{{ request()->routeIs('admin.admin_management.registered_admins') ? 'active' : '' }}">
                                     <a href="{{ route('admin.admin_management.registered_admins') }}">
-                                        <span class="sub-item">{{ 'Registered Admins' }}</span>
+                                        <span class="sub-item">{{ __('Registered Admins') }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -1190,7 +1190,7 @@ active @endif
             @elseif (request()->routeIs('admin.language_management.edit_keyword')) active @endif">
                         <a href="{{ route('admin.language_management') }}">
                             <i class="fal fa-language"></i>
-                            <p>{{ 'Language Management' }}</p>
+                            <p>{{ __('Language Management') }}</p>
                         </a>
                     </li>
                 @endif

@@ -21,6 +21,7 @@
     @include('frontend.partials.brand-colors')
     <link rel="stylesheet" href="{{ asset('assets/css/rafa-dashboard.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/rafa-home.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/rafa-experience.css') }}?v=20261108-2">
 </head>
 
 

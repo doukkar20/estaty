@@ -19,6 +19,12 @@ Use `deny.htaccess` inside `public/installer` and private runtime directories.
 Uploaded images in this app are already stored under `public/assets/img`.
 No publicly accessible installer or SQL import script should be uploaded.
 
+Use `htdocs.htaccess` as the root `.htaccess`. Its virtual `/vendor/` routing is
+needed for professional signup/login because this URL prefix is also used by
+the private Composer dependency directory. Existing dependency files and
+directories remain blocked. Verify both account pages and dependency-file
+protection after changing this configuration.
+
 Install dependencies locally from `composer.lock`, without development packages.
 Do not copy local dependency modifications or cached PHP configuration. Keep all
 PHP files below the host's 1 MB limit; run Composer without autoloader optimization

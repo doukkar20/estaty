@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/rafa-home.css') }}">
 
 
+    <link rel="stylesheet" href="{{ asset('assets/css/rafa-experience.css') }}?v=20261108-2">
 </head>
 
 <body class="rafa-frontend {{ request()->routeIs('index') ? 'rafa-home-page' : '' }} {{ $basicInfo->whatsapp_status == 1 ? 'rafa-has-chat' : '' }}" dir="{{ $currentLanguageInfo->direction == 1 ? 'rtl' : '' }}">

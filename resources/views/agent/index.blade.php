@@ -8,6 +8,7 @@
         'actionUrl' => route('agent.property_management.properties', ['language' => $defaultLang->code]),
         'actionLabel' => __('Manage properties'),
     ])
+    @include('partials.rafa-quick-start', ['audience' => 'agent'])
     <div class="rafa-section-heading">
         <h2>{{ __('Overview') }}</h2>
         <span>{{ __('Your workspace at a glance') }}</span>

@@ -22,8 +22,9 @@
     <meta http-equiv="Cache-Control" content="no-store" />
 @endsection
 @section('content')
+    <section class="rafa-results-heading"><div class="container"><span class="rafa-kicker">{{ __('Across Morocco') }}</span><h1>{{ __('Find a property that fits your plans') }}</h1><p>{{ __('Choose a city, set your budget, then contact the advertiser directly.') }}</p></div></section>
     <!-- Map Start-->
-    <div class="map-area border-top header-next pt-30">
+    <div class="map-area border-top header-next pt-30 {{ $property_contents->isEmpty() ? 'd-none' : '' }}">
         <!-- Background Image -->
         <div class="container">
             <div class="lazy-container radius-md ratio border">
@@ -429,7 +430,7 @@
                             <x-property :property="$property_content" :animate="false" class="col-lg-4 col-md-6" />
                         @empty
                             <div class="col-lg-12">
-                                <h3 class="text-center mt-5">{{ __('NO PROPERTY FOUND') . '!' }}</h3>
+                                <div class="rafa-results-empty"><i class="fas fa-search" aria-hidden="true"></i><h2>{{ __('No properties match your search yet') }}</h2><p>{{ __('Try another city or remove a filter. You can also contact us about your property search.') }}</p><div class="rafa-empty-actions"><a class="rafa-button rafa-button-primary" href="{{ route('frontend.properties') }}">{{ __('Reset filters') }}</a><a class="rafa-button" href="{{ route('contact') }}">{{ __('Contact us') }}</a></div></div>
                             </div>
                         @endforelse
                         <div class="row">

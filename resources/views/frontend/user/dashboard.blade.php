@@ -20,6 +20,7 @@
             <div class="row gx-xl-5">
                 @includeIf('frontend.user.side-navbar')
                 <div class="col-lg-9">
+                    @include('partials.rafa-quick-start', ['audience' => 'customer'])
                     @php
                         $profileFields = ['name', 'email', 'phone', 'city', 'country', 'address'];
                         $completedFields = collect($profileFields)->filter(function ($field) use ($authUser) {

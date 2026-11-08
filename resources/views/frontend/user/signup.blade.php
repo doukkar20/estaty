@@ -38,28 +38,32 @@
                         <h4 class="mb-20">{{ __('Signup') }}</h4>
                     </div>
                     <div class="form-group mb-30">
-                        <input type="text" class="form-control" name="username" placeholder="{{ __('Username') }}"
+                        <label for="account-username">{{ __('Username') }}</label>
+                        <input autocomplete="username" id="account-username" type="text" class="form-control" name="username" placeholder="{{ __('Username') }}"
                             required>
                         @error('username')
                             <p class="text-danger mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="form-group mb-30">
-                        <input type="text" class="form-control" name="email" placeholder="{{ __('Email') }}"
+                        <label for="account-email">{{ __('Email') }}</label>
+                        <input autocomplete="email" id="account-email" type="email" class="form-control" name="email" placeholder="{{ __('Email') }}"
                             required>
                         @error('email')
                             <p class="text-danger mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="form-group mb-30">
-                        <input type="password" class="form-control" name="password" placeholder="{{ __('Password') }}"
+                        <label for="account-password">{{ __('Password') }}</label>
+                        <input autocomplete="new-password" id="account-password" type="password" class="form-control" name="password" placeholder="{{ __('Password') }}"
                             required>
                         @error('password')
                             <p class="text-danger mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="form-group mb-30">
-                        <input type="password" name="password_confirmation" value="{{ old('password_confirmation') }}"
+                        <label for="account-password_confirmation">{{ __('Confirm Password') }}</label>
+                        <input autocomplete="new-password" id="account-password_confirmation" type="password" name="password_confirmation" value="{{ old('password_confirmation') }}"
                             class="form-control" placeholder="{{ __('Confirm Password') }}" required>
                         @error('password_confirmation')
                             <p class="text-danger mt-2">{{ $message }}</p>

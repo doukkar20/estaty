@@ -5,9 +5,10 @@
         'workspace' => __('Admin'),
         'displayName' => $authAdmin->first_name ?: $authAdmin->username,
         'description' => __('Your business at a glance. Manage your community and track activity in one place.'),
-        'actionUrl' => route('admin.edit_profile'),
-        'actionLabel' => __('Edit profile'),
+        'actionUrl' => is_null($roleInfo) ? route('admin.property_management.create_property') : route('admin.edit_profile'),
+        'actionLabel' => is_null($roleInfo) ? __('Publish a property') : __('Edit profile'),
     ])
+    @include('partials.rafa-quick-start', ['audience' => 'admin'])
     <div class="rafa-section-heading">
         <h2>{{ __('Overview') }}</h2>
         <span>{{ __('Your workspace at a glance') }}</span>

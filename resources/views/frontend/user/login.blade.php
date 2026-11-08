@@ -54,7 +54,8 @@
                         <h4 class="mb-20">{{ __('Login') }}</h4>
                     </div>
                     <div class="form-group mb-30">
-                        <input type="text"   class="form-control" name="username"
+                        <label for="account-username">{{ __('Username') }}</label>
+                        <input autocomplete="username" id="account-username" type="text"   class="form-control" name="username"
                             placeholder="{{ __('Username') }}" required>
                         @error('username')
                             <p class="text-danger mt-2">{{ $message }}</p>
@@ -62,7 +63,8 @@
                     </div>
 
                     <div class="form-group mb-30">
-                        <input type="password"  class="form-control" name="password"
+                        <label for="account-password">{{ __('Password') }}</label>
+                        <input autocomplete="current-password" id="account-password" type="password"  class="form-control" name="password"
                             placeholder="{{ __('Password') }}" required>
                         @error('password')
                             <p class="text-danger mt-2">{{ $message }}</p>

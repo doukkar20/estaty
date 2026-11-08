@@ -53,33 +53,11 @@
                 @endif
                 <!-- Navigation items -->
                 <div class="collapse navbar-collapse">
-                    @php $menuDatas = json_decode($menuInfos) ?: []; @endphp
-                    <ul id="mainMenu" class="navbar-nav mobile-item">
-
-                        @foreach ($menuDatas as $menuData)
-                            @php $href = get_href($menuData); @endphp
-                            @if (empty($menuData->children))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ $href }}">{{ $menuData->text }}</a>
-                                </li>
-                            @else
-                                <li class="nav-item">
-                                    <a class="nav-link toggle" href="{{ $href }}">{{ $menuData->text }}<i
-                                            class="fal fa-plus"></i></a>
-                                    <ul class="menu-dropdown">
-                                        @php $childMenuDatas = $menuData->children; @endphp
-                                        @foreach ($childMenuDatas as $childMenuData)
-                                            @php $child_href = get_href($childMenuData); @endphp
-                                            <li class="nav-item">
-                                                <a class="nav-link"
-                                                    href="{{ $child_href }}">{{ $childMenuData->text }}</a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </li>
-                            @endif
-                        @endforeach
-
+                    <ul id="mainMenu" class="navbar-nav mobile-item mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="{{ route('frontend.properties', ['purpose' => 'rent']) }}">{{ __('Rent') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('frontend.properties', ['purpose' => 'sale']) }}">{{ __('Buy') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('frontend.projects') }}">{{ __('New developments') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">{{ __('Contact') }}</a></li>
                     </ul>
                 </div>
                 <div class="more-option mobile-item">
@@ -104,7 +82,7 @@
                             <button class="btn btn-primary btn-sm dropdown-toggle" type="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 @if (!Auth::guard('web')->check())
-                                    {{ __('Customer') }}
+                                    {{ __('My account') }}
                                 @else
                                     {{ Auth::guard('web')->user()->username }}
                                 @endif
@@ -115,6 +93,8 @@
                                             href="{{ route('user.login') }}">{{ __('Login') }}</a></li>
                                     <li><a class="dropdown-item"
                                             href="{{ route('user.signup') }}">{{ __('Signup') }}</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="{{ route('vendor.login') }}">{{ __('Professional login') }}</a></li>
                                 @else
                                     <li><a class="dropdown-item"
                                             href="{{ route('user.dashboard') }}">{{ __('Dashboard') }}</a></li>
@@ -125,30 +105,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="dropdown">
-                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                @if (!Auth::guard('vendor')->check())
-                                    {{ __('Vendor') }}
-                                @else
-                                    {{ Auth::guard('vendor')->user()->username }}
-                                @endif
-                            </button>
-                            <ul class="dropdown-menu radius-0">
-                                @if (!Auth::guard('vendor')->check())
-                                    <li><a class="dropdown-item"
-                                            href="{{ route('vendor.login') }}">{{ __('Login') }}</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="{{ route('vendor.signup') }}">{{ __('Signup') }}</a></li>
-                                @else
-                                    <li><a class="dropdown-item"
-                                            href="{{ route('vendor.dashboard') }}">{{ __('Dashboard') }}</a></li>
-
-                                    <li><a class="dropdown-item"
-                                            href="{{ route('vendor.logout') }}">{{ __('Logout') }}</a></li>
-                                @endif
-                            </ul>
-                        </div>
+                        <a class="rafa-publish-link" href="{{ Auth::guard('vendor')->check() ? route('vendor.property_management.create_property') : route('vendor.signup') }}"><i class="fas fa-plus" aria-hidden="true"></i> {{ __('Publish a property') }}</a>
                     </div>
                 </div>
             </nav>

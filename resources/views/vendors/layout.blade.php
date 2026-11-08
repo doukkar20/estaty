@@ -22,6 +22,7 @@
   {{-- additional style --}}
   <link rel="stylesheet" href="{{ asset('assets/css/rafa-dashboard.css') }}">
   @yield('style')
+    <link rel="stylesheet" href="{{ asset('assets/css/rafa-experience.css') }}?v=20261108-2">
 </head>
 
 <body class="rafa-dashboard" data-background-color="{{ Session::get('vendor_theme_version', 'light') == 'light' ? 'white2' : 'dark' }}">

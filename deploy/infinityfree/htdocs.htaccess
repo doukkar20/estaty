@@ -1,6 +1,11 @@
 # InfinityFree fixes the document root at htdocs. Expose public/ only.
 RewriteEngine On
 RewriteRule (^|/)\.(?!well-known/) - [F,L]
+# Professional-account routes share the vendor prefix with Composer dependencies.
+# Route virtual URLs through Laravel; actual dependency files/directories stay denied.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^vendor/.+ public/index.php [L,NC]
 RewriteRule ^(?:app|bootstrap|config|database|deploy|resources|routes|storage|tests|vendor)(?:/|$) - [F,L,NC]
 RewriteRule ^(?:artisan|server\.php|composer\.(?:json|lock)|package(?:-lock)?\.json|phpunit\.xml|webpack\.mix\.js)$ - [F,L,NC]
 RewriteRule ^public/installer(?:/|$) - [F,L,NC]

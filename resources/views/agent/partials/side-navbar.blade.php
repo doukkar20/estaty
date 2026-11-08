@@ -56,7 +56,7 @@
                         <form>
                             <div class="form-group py-0">
                                 <input name="term" type="text" class="form-control sidebar-search ltr"
-                                    placeholder="Search Menu Here...">
+                                    placeholder="{{ __('Search the menu') }}" aria-label="{{ __('Search the menu') }}">
                             </div>
                         </form>
                     </div>
